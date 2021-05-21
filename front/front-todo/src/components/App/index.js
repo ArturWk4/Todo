@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AuthForm from "../AuthForm";
 import RegistrationForm from "../RegistrationForm";
 import ToDo from "../ToDo";
+import "bootstrap/dist/css/bootstrap.css"
 
 const App = () => {
   return (

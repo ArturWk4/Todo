@@ -1,0 +1,21 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  &:hover {
+    background-color: rgba(119, 119, 119, 0.116);
+  }
+  p {
+    margin: 0;
+    font-size: 20px;
+    flex-grow: 1;
+  }
+  .delete-btn {
+    align-self: flex-end;
+  }
+}
+
+.completedTask {
+  background-color: rgba(13, 146, 13, 0.11);
+  color: rgba(13, 146, 13, 0.61);
+}
