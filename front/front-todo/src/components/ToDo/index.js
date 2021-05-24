@@ -3,6 +3,7 @@ import AddForm from "../AddForm";
 import AppHeader from "../AppHeader";
 import ToDoList from "../ToDoList";
 import "./style.scss";
+
 const ToDo = () => {
   return (
     <div className="todo-container">
