@@ -7,7 +7,7 @@ const createUser = async (user) => {
   return await userAccessor.createUser({ ...user, password });
 };
 
-const getUserByUsername = async (username) =>
+const getUserByUsername = (username) =>
   userAccessor.getUserByUsername(username);
 
 const getUserFields = (user) => {

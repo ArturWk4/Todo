@@ -10,6 +10,8 @@ const options = {
 
 const strategy = new Strategy(options, async (jwtPayload, done) => {
   const { username, password } = jwtPayload;
+  console.log("-------JWT PAYLOAD--------------")
+  console.log(jwtPayload)
   if (!username || !password) {
     return done("Required fields are missing", false);
   }

@@ -5,12 +5,17 @@ const {
   setTaskCompletedController,
   deleteTaskController,
 } = require("../controllers/task");
+const { userAuthenticate } = require("../services/auth");
 
 const router = Router();
 
-router.post("/", createTaskController);
-router.get("/", getUsersTasksController);
-router.patch("/set-completed/:id", setTaskCompletedController);
-router.delete("/:id", deleteTaskController);
+router.post("/", userAuthenticate, createTaskController);
+router.get("/", userAuthenticate, getUsersTasksController);
+router.patch(
+  "/set-completed/:id",
+  userAuthenticate,
+  setTaskCompletedController
+);
+router.delete("/:id", userAuthenticate, deleteTaskController);
 
 module.exports = router;
