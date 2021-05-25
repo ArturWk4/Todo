@@ -3,6 +3,9 @@ const validation = require("../utils/validation");
 const userService = require("../services/user");
 const authService = require("../services/auth");
 
+const verifyController = (req, res) =>
+  res.status(HttpStatusCodes.OK).json({ success: true });
+
 const loginController = async (req, res) => {
   const { body } = req;
   try {
@@ -57,4 +60,5 @@ const registrationController = async (req, res) => {
 module.exports = {
   loginController,
   registrationController,
+  verifyController,
 };
