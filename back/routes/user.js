@@ -10,7 +10,7 @@ const { userAuthenticate } = require("../services/auth");
 const router = Router();
 
 router.post("/login", loginController);
-router.post("/verify", userAuthenticate, verifyController);
+router.get("/verify", userAuthenticate, verifyController);
 router.post("/registration", registrationController);
 
 module.exports = router;
