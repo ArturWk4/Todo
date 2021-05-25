@@ -15,5 +15,5 @@ export const completeTask = (taskId, Authorization) =>
     headers: { Authorization },
   });
 
-export const deleteTask = (taskId, Authorization) =>
+export const removeTask = (taskId, Authorization) =>
   server.delete(`/tasks/${taskId}`, { headers: { Authorization } });
