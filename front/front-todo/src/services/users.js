@@ -14,3 +14,5 @@ export const removeUserDataFromStorage = () =>
 
 export const getCurrentUser = () =>
   JSON.parse(localStorage.getItem("currentUser"));
+
+export const verifyUser = () => server.get("/user/verify");
