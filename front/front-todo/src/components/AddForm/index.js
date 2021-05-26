@@ -18,17 +18,18 @@ const priorities = [
 ];
 
 const AddForm = () => {
-  const [priority, setPriority] = useState(3);
-  const [taskTitle, setTaskTitle] = useState("");
+  const [priorityInput, setPriorityInput] = useState(3);
+  const [taskTitleInput, setTaskTitleInput] = useState("");
 
   const handlePriorityChange = (event) => {
-    setPriority(event.target.value);
+    setPriorityInput(event.target.value);
   };
   const handleTitleChange = (event) => {
-    setTaskTitle(event.target.value);
+    setTaskTitleInput(event.target.value);
   };
-  const handleAddTask = () => {
-    console.log(`${taskTitle} ${priority}`);
+  const handleAddTask = (e) => {
+    e.preventDefault();
+    console.log(`${taskTitleInput} ${priorityInput}`);
     // TODO: dispatch add task
   };
 
@@ -45,7 +46,7 @@ const AddForm = () => {
         id="standard-select-currency"
         select
         label="Приоритет"
-        value={priority}
+        value={priorityInput}
         onChange={(event) => handlePriorityChange(event)}
       >
         {priorities.map((option) => (
@@ -54,7 +55,12 @@ const AddForm = () => {
           </MenuItem>
         ))}
       </TextField>
-      <Button variant="contained" color="primary" onClick={handleAddTask}>
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        onClick={(e) => handleAddTask(e)}
+      >
         Добавить
       </Button>
     </form>
