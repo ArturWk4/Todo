@@ -23,7 +23,6 @@ const isRegistrationPayloadValid = (payload) => {
 const isCreateTaskPayloadValid = (payload) => {
   const schema = Joi.object({
     title: Joi.string().min(2).required(),
-    userId: Joi.required(),
     priorityId: Joi.required(),
   });
   const { error } = schema.validate(payload);
