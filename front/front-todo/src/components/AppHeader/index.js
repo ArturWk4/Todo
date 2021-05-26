@@ -4,10 +4,12 @@ import { useDispatch } from "react-redux";
 import "./style.scss";
 import { logout } from "../../store/user/actions";
 import { removeUserDataFromStorage } from "../../services/users";
+import { clearTaskList } from "../../store/tasks/actions";
 
 const AppHeader = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
+    clearTaskList(dispatch);
     removeUserDataFromStorage();
     dispatch(logout());
   };
