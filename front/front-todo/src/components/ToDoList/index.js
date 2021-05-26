@@ -36,11 +36,9 @@ const ToDoList = () => {
   useEffect(() => {
     dispatch(setTasksList()).then(() => {
       setIsLoaded(true);
-      console.log("2");
     });
   }, []);
 
-  console.log("1");
   return isLoaded ? (
     tasksList.map((item) => (
       <ToDoListItem key={item.id} className="todo-list-container" {...item} />
