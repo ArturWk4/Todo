@@ -21,6 +21,7 @@ const createTaskController = async (req, res) => {
 
 const getUsersTasksController = async (req, res) => {
   const { user } = req;
+  console.log(user.id);
   try {
     const tasks = await taskService.getTasksWhere({ userId: user.id });
     return res.status(HttpStatusCode.OK).json({ tasks });

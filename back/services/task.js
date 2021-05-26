@@ -2,7 +2,9 @@ const taskAccessor = require("../data-access/task");
 const { Task } = require("../database/models");
 
 const createTask = async (task) => taskAccessor.createTask(task);
-const getTasksWhere = async (where) => taskAccessor.getTasksWhere(where);
+const getTasksWhere = async (where) => {
+  return taskAccessor.getTasksWhere(where);
+};
 
 const updateTask = async (where, toChance) =>
   taskAccessor.updateTask(where, toChance);
