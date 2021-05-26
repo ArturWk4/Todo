@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { TextField, MenuItem, Button } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask } from "../../store/tasks/actions";
 import "./style.scss";
 
 const priorities = [
@@ -20,7 +22,7 @@ const priorities = [
 const AddForm = () => {
   const [priorityInput, setPriorityInput] = useState(3);
   const [taskTitleInput, setTaskTitleInput] = useState("");
-
+  const dispatch = useDispatch();
   const handlePriorityChange = (event) => {
     setPriorityInput(event.target.value);
   };
@@ -28,9 +30,7 @@ const AddForm = () => {
     setTaskTitleInput(event.target.value);
   };
   const handleAddTask = (e) => {
-    e.preventDefault();
-    console.log(`${taskTitleInput} ${priorityInput}`);
-    // TODO: dispatch add task
+    dispatch(addTask({ title: taskTitleInput, priorityId: priorityInput }));
   };
 
   return (

@@ -20,7 +20,7 @@ export const addTask = (task) => async (dispatch, getState) => {
 
 export const deleteTask = (id) => async (dispatch, getState) => {
   await removeTask(id, "Bearer " + getState().user.currentUser.data.token);
-  dispatch({ type: DELETE_TASK, payload: id });
+  dispatch({ type: DELETE_TASK });
 };
 
 export const clearTaskList = (dispatch, getState) => {

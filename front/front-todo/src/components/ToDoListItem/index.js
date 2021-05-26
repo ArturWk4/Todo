@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { Checkbox, Button } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { deleteTask } from "../../store/tasks/actions";
 import "./style.scss";
-// TODO: Добавить нормальную логику работы с данными
+
 const ToDoListItem = ({ id, title, completed, priorityId }) => {
   const [isCompleted, setCompleted] = useState(completed);
+  const dispatch = useDispatch();
   const handleCompleted = (event) => {
     setCompleted(event.target.checked);
+    
+  };
+  const handleDeleteTask = () => {
+    dispatch(deleteTask(id));
   };
 
   return (
@@ -20,7 +27,11 @@ const ToDoListItem = ({ id, title, completed, priorityId }) => {
         onChange={handleCompleted}
       />
       <p>{title}</p>
-      <Button className="delete-btn" color={"secondary"}>
+      <Button
+        className="delete-btn"
+        color={"secondary"}
+        onClick={handleDeleteTask}
+      >
         DEL
       </Button>
     </div>
