@@ -3,8 +3,14 @@ import {
   ADD_TASK,
   DELETE_TASK,
   CLEAR_TASK_LIST,
+  COMPLETE_TASK,
 } from "./actionTypes";
-import { getTasks, createTask, removeTask } from "../../services/tasks";
+import {
+  getTasks,
+  createTask,
+  removeTask,
+  completeTask,
+} from "../../services/tasks";
 
 export const setTasksList = () => async (dispatch, getState) => {
   const response = await getTasks(
@@ -26,3 +32,13 @@ export const deleteTask = (id) => async (dispatch, getState) => {
 export const clearTaskList = (dispatch, getState) => {
   dispatch({ type: CLEAR_TASK_LIST });
 };
+
+export const completeTaskAction =
+  (id, completed) => async (dispatch, getState) => {
+    await completeTask(
+      id,
+      completed,
+      "Bearer " + getState().user.currentUser.data.token
+    );
+    dispatch({ type: COMPLETE_TASK });
+  };

@@ -4,29 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { setTasksList } from "../../store/tasks/actions";
 import Spinner from "../Spinner";
 
-const todoData = [
-  {
-    id: 1,
-    title: "Do something",
-    completed: false,
-    userId: 1,
-    priorityId: 1,
-  },
-  {
-    id: 2,
-    title: "Do somthing else",
-    completed: false,
-    userId: 1,
-    priorityId: 2,
-  },
-  {
-    id: 3,
-    title: "Do somthing else",
-    completed: true,
-    userId: 1,
-    priorityId: 2,
-  },
-];
 
 const ToDoList = () => {
   const [isLoaded, setIsLoaded] = useState(true);

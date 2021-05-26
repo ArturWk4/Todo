@@ -10,10 +10,16 @@ export const getTasks = (Authorization) =>
     headers: { Authorization },
   });
 
-export const completeTask = (taskId, Authorization) =>
-  server.patch(`/tasks/set-completed/${taskId}`, {
-    headers: { Authorization },
-  });
+export const completeTask = (taskId, completed, Authorization) => {
+  console.log(completed, taskId);
+  return server.patch(
+    `/tasks/set-completed/${taskId}`,
+    { completed },
+    {
+      headers: { Authorization },
+    }
+  );
+};
 
 export const removeTask = (taskId, Authorization) =>
   server.delete(`/tasks/${taskId}`, { headers: { Authorization } });

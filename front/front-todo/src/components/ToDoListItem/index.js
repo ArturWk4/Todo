@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Checkbox, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import { deleteTask } from "../../store/tasks/actions";
+import { deleteTask, completeTaskAction } from "../../store/tasks/actions";
 import "./style.scss";
 
 const ToDoListItem = ({ id, title, completed, priorityId }) => {
@@ -9,7 +9,7 @@ const ToDoListItem = ({ id, title, completed, priorityId }) => {
   const dispatch = useDispatch();
   const handleCompleted = (event) => {
     setCompleted(event.target.checked);
-    
+    dispatch(completeTaskAction(id, !isCompleted));
   };
   const handleDeleteTask = () => {
     dispatch(deleteTask(id));

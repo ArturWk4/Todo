@@ -4,6 +4,7 @@ import {
   ADD_TASK,
   DELETE_TASK,
   CLEAR_TASK_LIST,
+  COMPLETE_TASK,
 } from "./actionTypes";
 
 const initialState = {
@@ -15,6 +16,7 @@ const tasksReducer = createReducer(initialState, {
   [CLEAR_TASK_LIST]: (state, action) => ({ ...state, tasksList: [] }),
   [ADD_TASK]: (state, action) => ({ ...state }),
   [DELETE_TASK]: (state, action) => ({ ...state }),
+  [COMPLETE_TASK]: (state, action) => ({ ...state }),
 });
 
 export default tasksReducer;
