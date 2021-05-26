@@ -10,11 +10,11 @@ import {
   Container,
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { useStyles } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
+import { useStyles } from "./styles";
 import { login } from "../../store/user/actions";
 import { storeUserData } from "../../services/users";
-import "./styles.js";
+
 
 const AuthForm = () => {
   const classes = useStyles();
