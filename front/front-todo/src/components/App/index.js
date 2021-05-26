@@ -10,17 +10,11 @@ import { verifyUser } from "../../services/users";
 
 const App = () => {
   const [isUserVerified, setIsUserVerified] = useState();
-  //console.log("first ", isUserVerified); // to remove
   const user = useSelector((state) => state.user);
-  // TODO: remove console.log's
-  //console.log(user); // to remove
-  // console.log("LS " + localStorage.getItem("currentUser")); // to remove
-
   useEffect(() => {
     verifyUser("Bearer " + user.currentUser?.data?.token)
       .then(() => setIsUserVerified(true))
       .catch(() => setIsUserVerified(false));
-    // console.log("VERIFY " + isUserVerified); // to remove
   }, [user]);
 
   return (
