@@ -46,7 +46,7 @@ const AuthForm = () => {
             required
             fullWidth
             id="email"
-            label="Email адрес"
+            label="Имя пользователя"
             name="email"
             autoComplete="email"
             autoFocus

@@ -33,7 +33,9 @@ const RegistrationForm = () => {
         dispatch(login(username, password));
       })
       .then(() => setIsRegistrationFinished(true))
-      .catch((err) => console.err("STMH WRONG: ", err));
+      .catch((err) => {
+        console.error("STMH WRONG: ", err);
+      });
   };
   useEffect(() => {
     storeUserData(currentUser);
@@ -74,7 +76,7 @@ const RegistrationForm = () => {
                     required
                     fullWidth
                     id="email"
-                    label="Email адрес"
+                    label="Имя пользователя"
                     name="email"
                     autoComplete="email"
                     onChange={(event) => handleInputChange(setUsername, event)}
